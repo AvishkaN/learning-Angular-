@@ -1,0 +1,28 @@
+<h2>thi hotel is {{hotelName}}</h2>
+<!-- <div [hidden]="hideRooms">
+    
+    <span [textContent]="hotelRomms"></span>
+    <span> room</span>
+    
+</div> -->
+
+<!-- {{rooms?.avilableRooms ?? 'No rooms'}} -->
+<!-- {{'No rooms' ?? rooms?.avilableRooms  }} -->
+
+
+<!--  json pipe -->
+<!-- {{roomList | json}} -->
+
+<div *ngIf="rooms?.avilableRooms" [ngStyle]="{'color':rooms.avilableRooms?'green':'orange'}">
+    <h2>this hotel has </h2> 
+    
+    <span [textContent]="rooms.avilableRooms"></span>
+    <span> room</span>
+
+
+    <app-rooms-list [rooms]="roomList"></app-rooms-list>
+
+    
+</div>
+
+<!-- <button (click)="toggle()">room toggle</button> 3.24 -->
