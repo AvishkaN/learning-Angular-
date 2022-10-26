@@ -1,5 +1,10 @@
 <p>rooms-list works!</p>
 
+<h2>
+
+    {{title}}
+</h2>
+
 <table class="table">
     <tr>
         <th>Index</th>
@@ -11,7 +16,7 @@
         <th>check In time</th>
     </tr>
 
-    <tr *ngFor="let room of rooms | slice: 0:3; let e=even; let o=odd; let i=index;" [ngClass]="e ? 'even':'odd'">
+    <tr *ngFor="let room of rooms; let e=even; let o=odd; let i=index;" [ngClass]="e ? 'even':'odd'">
         <th>{{i}}</th>
         <th>{{e ? 'Even':'Odd'}}</th>
         <th>{{room.roomNumber}}</th>
@@ -20,5 +25,10 @@
         <th>{{room.price | currency:'USD'}}</th>
         <th>{{room.checkinTime | date}}</th>
         <th>{{room.checkoutTime | date}}</th>
+        <th>
+            <button class="btn btn-primary" (click)="callParent(room)">
+                select
+            </button>
+        </th>
     </tr>
 </table>
