@@ -19,7 +19,6 @@ export class RoomsListComponent implements OnInit {
   constructor() { }
 
   ngOnChanges(changes:SimpleChanges){
-    console.log(changes);
   }
 
   ngOnInit(): void {
