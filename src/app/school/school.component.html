@@ -1,0 +1,11 @@
+<h1>school works!</h1>
+<app-class1>school works!</app-class1>
+<app-class2>school works!</app-class2>
+
+<h2>-------classlist ------</h2>
+
+<div class="" *ngFor="let item of classes; index as i">
+  {{ item["name"] }} : Garde {{ item["grade"] }}
+</div>
+
+<app-add-new-class></app-add-new-class>
