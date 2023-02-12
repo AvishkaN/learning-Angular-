@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { from, Observable, of } from 'rxjs';
+import { filter, from, map, Observable, of } from 'rxjs';
 import { LogServiceService } from './services/log-service.service';
 import { SchoolServiceService } from './services/school-service.service';
 
@@ -39,10 +39,20 @@ export class SchoolComponent implements OnInit {
 
   myObserver = from(this.arr1);
 
+  // map and filter
+  transformedObserver = this.myObserver.pipe(
+    map((value) => {
+      return value * 5;
+    }),
+    filter((value) => {
+      return value >= 25;
+    })
+  );
+
   ngOnInit(): void {
     this.classes = this._schoolServiceService.classes;
 
-    this.myObserver.subscribe(
+    this.transformedObserver.subscribe(
       (value: any) => {
         console.log(value);
       },
@@ -50,7 +60,7 @@ export class SchoolComponent implements OnInit {
         alert(error.message);
       },
       () => {
-        console.log('👉 all values return successfully');
+        console.log('---------👉 all values return successfully------');
       }
     );
   }
