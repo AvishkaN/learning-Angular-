@@ -15,6 +15,10 @@ import { Class1Component } from './school/class1/class1.component';
 import { Class2Component } from './school/class2/class2.component';
 import { AddNewClassComponent } from './school/add-new-class/add-new-class.component';
 import { LogServiceService } from './school/services/log-service.service';
+import { Comp1Component } from './school/comp1/comp1.component';
+import { Comp2Component } from './school/comp2/comp2.component';
+import { FormsModule } from '@angular/forms';
+import { Comp1ServiceService } from './school/comp1-service.service';
 
 @NgModule({
   declarations: [
@@ -26,15 +30,19 @@ import { LogServiceService } from './school/services/log-service.service';
     Class1Component,
     Class2Component,
     AddNewClassComponent,
+    Comp1Component,
+    Comp2Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
   providers: [
     { provide: APP_SERVICE_CONFIG, useValue: APP_CONFIG },
+    Comp1ServiceService,
     LogServiceService,
   ],
   bootstrap: [AppComponent],
